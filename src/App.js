@@ -32,6 +32,11 @@ function App() {
   const handleOnchangeInput = (event) => {
     setAdress(event.target.value)
   }
+
+  const deleteDataTodo = (id) => {
+    let tempTodos = todos.filter(item => item.id !== id);
+    setTodos(tempTodos)
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -41,10 +46,12 @@ function App() {
         <Todo
           todos={todos}
           title={'All todo'}
+          deleteDataTodo={deleteDataTodo}
         />
         <Todo
           todos={todos.filter(item => item.type === 'taivu')}
           title={'todo making is TaiVu'}
+          deleteDataTodo={deleteDataTodo}
         />
 
         <input type="text" value={adress} onChange={(event) => handleOnchangeInput(event)} />
