@@ -16,28 +16,28 @@ function App() {
 
   ])
 
-  const handleOnclickButton = () => {
-    if (!adress) {
-      alert('invalid new todo');
-      return;
-    }
-    let newTodo = {
-      id: Math.floor(Math.random() * 10001),
-      title: adress,
-      type: 'taivu'
-    }
-    setTodos([...todos, newTodo])
-    setAdress("")
-  }
+  // const handleOnclickButton = () => {
+  //   if (!adress) {
+  //     alert('invalid new todo');
+  //     return;
+  //   }
+  //   let newTodo = {
+  //     id: Math.floor(Math.random() * 10001),
+  //     title: adress,
+  //     type: 'taivu'
+  //   }
+  //   setTodos([...todos, newTodo])
+  //   setAdress("")
+  // }
 
-  const handleOnchangeInput = (event) => {
-    setAdress(event.target.value)
-  }
+  // const handleOnchangeInput = (event) => {
+  //   setAdress(event.target.value)
+  // }
 
-  const deleteDataTodo = (id) => {
-    let tempTodos = todos.filter(item => item.id !== id);
-    setTodos(tempTodos)
-  }
+  // const deleteDataTodo = (id) => {
+  //   let tempTodos = todos.filter(item => item.id !== id);
+  //   setTodos(tempTodos)
+  // }
   /**
    * useEffect(f,[]) = componentDidMount run one time after render of mounting
    * useEffect(f,[pra1, pra2...]) Run <=> pra1 or pra2... is update (setPra1 or setPra2 run) <=> componentDidUpdate

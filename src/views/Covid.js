@@ -1,20 +1,11 @@
-import { useState, useEffect } from 'react';
-import axios from "axios";
 import moment from 'moment';
+import useFetch from '../Customize/fetch';
 
 const Covid = () => {
-    let fromdate = new Date();
-    let todate = new Date();
-    todate.setDate(todate.getDate() - 30);
-    const [dataCovid, setDataCovid] = useState([])
-    useEffect(async () => {
-        let res = await axios.get(`https://api.covid19api.com/country/vietnam?from=${moment(todate).format('YYYY-MM-DD')}T00%3A00%3A00Z&to=${moment(fromdate).format('YYYY-MM-DD')}T00%3A00%3A00Z`);
-        let data = res?.data || [];
-        setDataCovid(data);
-    }, [])
+    let { data: dataCovid, isLoading, isError } = useFetch('https://pi.covid19api.com/country/vietnam?from=2022-06-14T00%3A00%3A00Z&to=2022-07-14T00%3A00%3A00Z')
     return (
         <>
-            {console.log('>>> res: ', dataCovid)}
+            {console.log('>>>>>>>>>>>>>>')}
             <table>
                 <thead>
                     <tr>
@@ -26,16 +17,17 @@ const Covid = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {dataCovid && dataCovid.length > 0 &&
+                    {!isError && !isLoading && dataCovid && dataCovid.length > 0 &&
                         dataCovid.map((item, index, old) => {
                             return (
                                 <tr key={item.ID}>
                                     <td>{moment(item.Date).format('DD-MM-YYYY')}</td>
                                     <td>{item.Confirmed}</td>
-                                    <td>{index === 0 ?
-                                        item.Active
-                                        :
-                                        item.Active - old[index - 1].Active
+                                    <td>{
+                                        index < (old.length - 1) ?
+                                            item.Active - old[index + 1].Active
+                                            :
+                                            ""
                                     }
                                     </td>
                                     <td>{item.Deaths}</td>
@@ -43,6 +35,16 @@ const Covid = () => {
                                 </tr>
                             )
                         })
+                    }
+                    {isLoading && !isError &&
+                        <tr>
+                            <td colSpan='5' style={{ textAlign: "center" }}>isLoading...</td>
+                        </tr>
+                    }
+                    {isError &&
+                        <tr>
+                            <td colSpan='5' style={{ textAlign: "center" }}>Something wrong...</td>
+                        </tr>
                     }
                 </tbody>
             </table >
