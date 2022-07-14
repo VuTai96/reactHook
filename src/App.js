@@ -4,6 +4,7 @@ import Nav from './views/Nav';
 import { useState, useEffect } from 'react';
 import Todo from './views/Todo';
 import Covid from './views/Covid';
+import { CountDown, NewCountDown } from './views/CountDown';
 
 function App() {
   let [name, setName] = useState('TaiVu')
@@ -16,44 +17,52 @@ function App() {
 
   ])
 
-  // const handleOnclickButton = () => {
-  //   if (!adress) {
-  //     alert('invalid new todo');
-  //     return;
-  //   }
-  //   let newTodo = {
-  //     id: Math.floor(Math.random() * 10001),
-  //     title: adress,
-  //     type: 'taivu'
-  //   }
-  //   setTodos([...todos, newTodo])
-  //   setAdress("")
-  // }
+  const handleOnclickButton = () => {
+    if (!adress) {
+      alert('invalid new todo');
+      return;
+    }
+    let newTodo = {
+      id: Math.floor(Math.random() * 10001),
+      title: adress,
+      type: 'taivu'
+    }
+    setTodos([...todos, newTodo])
+    setAdress("")
+  }
 
-  // const handleOnchangeInput = (event) => {
-  //   setAdress(event.target.value)
-  // }
+  const handleOnchangeInput = (event) => {
+    setAdress(event.target.value)
+  }
 
-  // const deleteDataTodo = (id) => {
-  //   let tempTodos = todos.filter(item => item.id !== id);
-  //   setTodos(tempTodos)
-  // }
+  const deleteDataTodo = (id) => {
+    let tempTodos = todos.filter(item => item.id !== id);
+    setTodos(tempTodos)
+  }
   /**
    * useEffect(f,[]) = componentDidMount run one time after render of mounting
    * useEffect(f,[pra1, pra2...]) Run <=> pra1 or pra2... is update (setPra1 or setPra2 run) <=> componentDidUpdate
   */
   useEffect(() => {
-    console.log(">>> UserEffect")
+    //console.log(">>> UserEffect")
   }, [])
   useEffect(() => {
-    console.log(">>> UserEffect vs adress, todos")
+    //console.log(">>> UserEffect vs adress, todos")
   }, [adress, todos])
-
+  const timeup = () => {
+    alert('time up')
+  }
   return (
     <div className="App">
       <header className="App-header">
         <Nav />
         <img src={logo} className="App-logo" alt="logo" />
+        <CountDown
+          timeup={timeup}
+        />
+        <hr />
+        <NewCountDown
+          timeup={timeup} />
         <h1>Hello world with babyShark - {name}</h1>
 
         <Covid />

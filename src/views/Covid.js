@@ -1,11 +1,12 @@
 import moment from 'moment';
 import useFetch from '../Customize/fetch';
-
+// /https://api.covid19api.com/country/vietnam?from=2022-06-14T00%3A00%3A00Z&to=2022-07-14T00%3A00%3A00Z'
 const Covid = () => {
-    let { data: dataCovid, isLoading, isError } = useFetch('https://pi.covid19api.com/country/vietnam?from=2022-06-14T00%3A00%3A00Z&to=2022-07-14T00%3A00%3A00Z')
+    let today2 = new Date();
+    today2.setDate(today2.getDate() - 30);
+    let { data: dataCovid, isLoading, isError } = useFetch(`https://api.covid19api.com/country/vietnam?from=${moment(today2).format(`YYYY-MM-DD`)}T00%3A00%3A00Z&to=${moment().format(`YYYY-MM-DD`)}T00%3A00%3A00Z`)
     return (
         <>
-            {console.log('>>>>>>>>>>>>>>')}
             <table>
                 <thead>
                     <tr>

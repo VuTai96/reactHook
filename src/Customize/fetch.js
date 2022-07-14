@@ -21,9 +21,8 @@ const useFetch = (url) => {
             }
         }
         fetchData();
-        /*add this comment  to disable the eslint  (// eslint-disable-next-line)*/
-        // eslint-disable-next-line 
-    }, [])
+
+    }, [url])
 
     return { data, isLoading, isError }
 }
