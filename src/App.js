@@ -3,6 +3,7 @@ import './App.css';
 import Nav from './views/Nav';
 import { useState, useEffect } from 'react';
 import Todo from './views/Todo';
+import Covid from './views/Covid';
 
 function App() {
   let [name, setName] = useState('TaiVu')
@@ -39,7 +40,7 @@ function App() {
   }
   /**
    * useEffect(f,[]) = componentDidMount run one time after render of mounting
-   * useEffect(f,[pra1, pra2...]) Run <=> pra1 or pra2... is update (setPra1 or setPra2 run)
+   * useEffect(f,[pra1, pra2...]) Run <=> pra1 or pra2... is update (setPra1 or setPra2 run) <=> componentDidUpdate
   */
   useEffect(() => {
     console.log(">>> UserEffect")
@@ -54,7 +55,10 @@ function App() {
         <Nav />
         <img src={logo} className="App-logo" alt="logo" />
         <h1>Hello world with babyShark - {name}</h1>
-        <Todo
+
+        <Covid />
+
+        {/* <Todo
           todos={todos}
           title={'All todo'}
           deleteDataTodo={deleteDataTodo}
@@ -66,7 +70,7 @@ function App() {
         />
 
         <input type="text" value={adress} onChange={(event) => handleOnchangeInput(event)} />
-        <button type="button" onClick={(event) => handleOnclickButton(event)}>click me</button>
+        <button type="button" onClick={(event) => handleOnclickButton(event)}>click me</button> */}
       </header>
     </div>
   );
