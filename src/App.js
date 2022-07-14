@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Nav from './views/Nav';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Todo from './views/Todo';
 
 function App() {
@@ -37,6 +37,17 @@ function App() {
     let tempTodos = todos.filter(item => item.id !== id);
     setTodos(tempTodos)
   }
+  /**
+   * useEffect(f,[]) = componentDidMount run one time after render of mounting
+   * useEffect(f,[pra1, pra2...]) Run <=> pra1 or pra2... is update (setPra1 or setPra2 run)
+  */
+  useEffect(() => {
+    console.log(">>> UserEffect")
+  }, [])
+  useEffect(() => {
+    console.log(">>> UserEffect vs adress, todos")
+  }, [adress, todos])
+
   return (
     <div className="App">
       <header className="App-header">
