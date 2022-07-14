@@ -18,10 +18,11 @@ const useFetch = (url) => {
             } catch (error) {
                 setIsLoading(false);
                 setIsError(true);
-                console.log(error)
             }
         }
         fetchData();
+        /*add this comment  to disable the eslint  (// eslint-disable-next-line)*/
+        // eslint-disable-next-line 
     }, [])
 
     return { data, isLoading, isError }
