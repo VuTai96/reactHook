@@ -23,6 +23,7 @@ const Nav = () => {
                 BlogApp
             </NavLink>
 
+
             {/* <NavLink to="/" activeClassName="selected">
                 Home
             </NavLink>

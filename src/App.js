@@ -7,6 +7,7 @@ import Covid from './views/Covid';
 import { CountDown, NewCountDown } from './views/CountDown';
 import Blog from './views/Blog';
 import BlogDetail from './views/BlogDetail';
+import AddNewBlog from './views/AddNewBlog';
 import {
   BrowserRouter as Router,
   Switch,
@@ -99,6 +100,9 @@ function App() {
             </Route>
             <Route path="/blog/:id">
               <BlogDetail />
+            </Route>
+            <Route path="/add-new-block">
+              <AddNewBlog />
             </Route>
 
           </Switch>
