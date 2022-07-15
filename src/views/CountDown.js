@@ -39,7 +39,7 @@ class CountDown extends React.Component {
     }
 }
 
-/* re render <=> call setCount */
+/* re render <=> call setCount ...?*/
 /* useEffect(f,[]) <=> componentDidMount */
 /* useEffect(f,[count]) <=> componentDidMount + componentDidUpdate */
 
@@ -53,17 +53,18 @@ const NewCountDown = (props) => {
         }
 
         let timer = setInterval(() => {
-            console.log('runme')
+            // console.log('runme')
             setCount(count - 1)
         }, 1000)
         return () => {
             clearInterval(timer)
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [count])
 
     return (
         <>
-            {console.log('render')}
+            {/* {console.log('render')} */}
             <div>{count} hooks</div>
         </>
     )
