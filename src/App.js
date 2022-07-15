@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react';
 import Todo from './views/Todo';
 import Covid from './views/Covid';
 import { CountDown, NewCountDown } from './views/CountDown';
+import Blog from './views/Blog';
+import BlogDetail from './views/BlogDetail';
 import {
   BrowserRouter as Router,
   Switch,
@@ -56,7 +58,7 @@ function App() {
     //console.log(">>> UserEffect vs adress, todos")
   }, [adress, todos])
   const timeup = () => {
-    alert('time up')
+    //console.log('time up')
   }
   return (
     <Router>
@@ -92,6 +94,13 @@ function App() {
                 timeup={timeup}
               />
             </Route>
+            <Route path="/blog" exact>
+              <Blog />
+            </Route>
+            <Route path="/blog/:id">
+              <BlogDetail />
+            </Route>
+
           </Switch>
 
         </header>

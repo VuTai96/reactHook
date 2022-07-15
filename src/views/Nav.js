@@ -19,6 +19,9 @@ const Nav = () => {
             <NavLink to="/countdownApp" activeClassName="active">
                 countdownApp
             </NavLink>
+            <NavLink to="/blog" activeClassName="active">
+                BlogApp
+            </NavLink>
 
             {/* <NavLink to="/" activeClassName="selected">
                 Home

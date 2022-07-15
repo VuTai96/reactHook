@@ -5,7 +5,8 @@ const Covid = () => {
     let today2 = new Date();
     today2.setDate(today2.getDate() - 30);
     //console.log(moment(today2).toISOString())
-    let { data: dataCovid, isLoading, isError } = useFetch(`https://api.covid19api.com/country/vietnam?from=${moment(today2).format(`YYYY-MM-DD`)}T00%3A00%3A00Z&to=${moment().format(`YYYY-MM-DD`)}T00%3A00%3A00Z`)
+    let { data: dataCovid, isLoading, isError } = useFetch(`https://api.covid19api.com/country/vietnam?` +
+        `from=${moment(today2).format(`YYYY-MM-DD`)}T00%3A00%3A00Z&to=${moment().format(`YYYY-MM-DD`)}T00%3A00%3A00Z`, true)
     return (
         <>
             <table>
