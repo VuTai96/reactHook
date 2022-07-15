@@ -22,11 +22,16 @@ class CountDown extends React.Component {
         if (this.state.count === 0) {
             if (this.timmer) {
 
-                clearInterval(this.timmer)
-                this.props.timeup()
+                clearInterval(this.timmer);
+                this.props.timeup();
             }
         }
-
+    }
+    componentWillUnmount() {
+        if (this.timmer) {
+            clearInterval(this.timmer);
+            console.log('>>> exit count class');
+        }
     }
 
     render() {
@@ -42,6 +47,9 @@ class CountDown extends React.Component {
 /* re render <=> call setCount ...?*/
 /* useEffect(f,[]) <=> componentDidMount */
 /* useEffect(f,[count]) <=> componentDidMount + componentDidUpdate */
+/* useEffect(()=>{return (f-return)},[count]): 
+khi gọi lại hàm useEffect nhờ biens count thay đổi
+hoặc điều hướng sang navigator khác ( <=> companentWillUnmount) thì thực hiện ngay hàm f-return */
 
 const NewCountDown = (props) => {
     const [count, setCount] = useState(6);
@@ -58,7 +66,9 @@ const NewCountDown = (props) => {
         }, 1000)
         return () => {
             clearInterval(timer)
+            console.log('>>> exit count hooks')
         }
+        // thêm comment sau để abort lỗi react-hooks/exhaustive-deps
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [count])
 
