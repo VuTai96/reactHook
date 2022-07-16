@@ -9,6 +9,7 @@ import Blog from './views/Blog';
 import BlogDetail from './views/BlogDetail';
 import AddNewBlog from './views/AddNewBlog';
 import NotFound from './views/NotFound';
+import YoutubeSearch from './views/YoutubeSearch';
 import {
   BrowserRouter as Router,
   Switch,
@@ -105,9 +106,13 @@ function App() {
             <Route path="/add-new-block">
               <AddNewBlog />
             </Route>
+            <Route path="/secrect">
+              <YoutubeSearch />
+            </Route>
             <Route path="*">
               <NotFound />
             </Route>
+
           </Switch>
 
         </header>

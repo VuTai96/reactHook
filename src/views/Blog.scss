@@ -77,3 +77,48 @@
         margin-left: 15px;
     }
 }
+
+
+.yt-search {
+    input {
+        outline: none;
+        width  : 500px;
+    }
+}
+
+.youtubeSearch-container {
+    // border : 1px solid white;
+    width  : 80%;
+    display: flex;
+    margin : 15px;
+
+    .leff {
+        // border: 1px solid red;
+        width: 35%;
+
+        .child-iframe {
+            width : 500px;
+            height: 300px;
+        }
+    }
+
+    .right {
+        width    : 65%;
+        // border: 1px solid greenyellow;
+
+        .detail {
+            text-align: left;
+            font-size : 18px;
+            margin    : 20px 10px;
+
+            &:first-child {
+                margin: 0px 10px;
+            }
+        }
+
+        .title {
+            font-size  : 25px;
+            font-weight: 500;
+        }
+    }
+}

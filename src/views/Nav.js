@@ -14,13 +14,16 @@ const Nav = () => {
                 Home
             </NavLink>
             <NavLink to="/todoApps" activeClassName="active">
-                todo apps
+                Todo Apps
             </NavLink>
             <NavLink to="/countdownApp" activeClassName="active">
-                countdownApp
+                CountDownApp
             </NavLink>
             <NavLink to="/blog" activeClassName="active">
                 BlogApp
+            </NavLink>
+            <NavLink to="/secrect" activeClassName="active">
+                Secrect
             </NavLink>
 
 
